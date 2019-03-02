@@ -6,6 +6,9 @@ if (isset($_GET['action'])) {
 	if ($_GET['action'] == 'showPosts'){
 		showPosts();
 	}
+	else if ($_GET['action'] == 'post'){
+		singlePost();
+	}
 	else {
 		echo 'Erreur';
 	}

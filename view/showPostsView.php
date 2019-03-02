@@ -9,7 +9,7 @@ while ($data = $posts->fetch())
 ?>
 	<div>
 		<h2>
-			<?= htmlspecialchars($data['title']) . $data['date_creation'] ?> 
+			<a href='index.php?action=post&amp;id=<?= $data['id']?>'><?= htmlspecialchars($data['title']) . $data['date_creation'] ?></a>
 		</h2>
 		<p>
 			<?= nl2br(htmlspecialchars($data['content'])) ?>
