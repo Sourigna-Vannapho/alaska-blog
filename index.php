@@ -12,6 +12,9 @@ if (isset($_GET['action'])) {
 	else if ($_GET['action'] == 'register'){
 		register();
 	}
+	else if ($_GET['action'] == 'register_confirm'){
+		registerConfirm();
+	}
 	else {
 		echo 'Erreur';
 	}

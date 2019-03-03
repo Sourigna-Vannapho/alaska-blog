@@ -12,4 +12,12 @@ function callPost(){
 	$singlePost = $req->fetch();
 	return $singlePost;
 }
+function callRegister(){
+	$bdd = new PDO('mysql:host=localhost;dbname=blog_alaska;charset=utf8', 'root', ''); //A modifier par la suite (Effacer le commentaire lorsque effectué)
+	$req = $bdd->prepare('INSERT INTO utilisateurs(pseudo,pass,authority) VALUES (:pseudo,:pass,1)');
+	$req->execute(array(
+		'pseudo' =>$_POST['pseudo'],
+		'pass' =>$_POST['pass']
+	));
+}
 ?>

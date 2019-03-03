@@ -13,7 +13,10 @@ function singlePost(){
 
 }
 function register(){
-	// $register = callRegister();
 	require('view/registerView.php');
+}
+function registerConfirm(){
+	callRegister();
+	require('view/registerView_post.php');
 }
 ?>
