@@ -7,6 +7,7 @@
     </head>
         
     <body>
+    	<a href='index.php?action=register'>Inscription</a>
         <?= $content ?>
     </body>
 </html>

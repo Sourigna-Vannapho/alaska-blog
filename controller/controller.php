@@ -12,4 +12,8 @@ function singlePost(){
 	require('view/showPostView.php');
 
 }
+function register(){
+	// $register = callRegister();
+	require('view/registerView.php');
+}
 ?>

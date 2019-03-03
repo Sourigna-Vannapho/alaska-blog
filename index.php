@@ -9,6 +9,9 @@ if (isset($_GET['action'])) {
 	else if ($_GET['action'] == 'post'){
 		singlePost();
 	}
+	else if ($_GET['action'] == 'register'){
+		register();
+	}
 	else {
 		echo 'Erreur';
 	}
