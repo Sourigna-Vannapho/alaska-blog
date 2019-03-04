@@ -4,7 +4,7 @@
 <form method="POST" action="index.php?action=register_confirm">
 	<label>Pseudo:</label><input type="text" name="pseudo"/>
 	<label>Mot de passe :</label><input type="password" name="pass"/>
-	<input type="submit" value="Envoyer"/>
+	<input type="submit" value="S'inscrire"/>
 </form>
 <a href='index.php?action=showPosts'>Retour à l'accueil</a>
 
