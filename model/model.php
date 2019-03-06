@@ -18,13 +18,26 @@ function callPost(){
 	return $singlePost;
 }
 function callRegister(){
-	$pass_hash = password_hash($_POST['pass'], PASSWORD_DEFAULT);
 	$bdd = new PDO('mysql:host=localhost;dbname=blog_alaska;charset=utf8', 'root', ''); //A modifier par la suite (Effacer le commentaire lorsque effectué)
-	$req = $bdd->prepare('INSERT INTO utilisateurs(pseudo,pass,authority) VALUES (:pseudo,:pass,1)');
-	$req->execute(array(
-		'pseudo' =>$_POST['pseudo'],
-		'pass' =>$pass_hash
-	));
+	$requestPseudo = $bdd->prepare('SELECT pseudo FROM utilisateurs WHERE pseudo = :pseudo');
+	$requestPseudo->execute(array('pseudo'=>$_POST['pseudo']));
+	$pseudoAvailable = $requestPseudo->fetch();
+	if (!$pseudoAvailable){
+		echo 'Pseudo dispo';
+		$pass_hash = password_hash($_POST['pass'], PASSWORD_DEFAULT);
+		$req = $bdd->prepare('INSERT INTO utilisateurs(pseudo,pass,authority) VALUES (:pseudo,:pass,1)');
+		$req->execute(array(
+			'pseudo' =>$_POST['pseudo'],
+			'pass' =>$pass_hash
+		));
+		header('Location:index.php');
+	}
+	else{
+		echo 'Pseudo non dispo';
+		header('Location:index.php?action=register');}
+	
+
+
 }
 function callLogin(){
 	$bdd = new PDO('mysql:host=localhost;dbname=blog_alaska;charset=utf8', 'root', ''); //A modifier par la suite (Effacer le commentaire lorsque effectué)
@@ -42,7 +55,6 @@ function callLogin(){
 			session_start();
 			$_SESSION['id'] = $loginResult['id'];
 			$_SESSION['pseudo'] = $loginResult['pseudo'];
-			echo 'ok';
 		}
 		else{
 		}

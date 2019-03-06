@@ -13,6 +13,13 @@
         
     <body>
     	<div>
+			<?php 
+			if (isset($_SESSION['id']) AND isset($_SESSION['pseudo'])){
+				echo 'Bonjour ' . $_SESSION['pseudo']; ?>
+				<a href='index.php?action=logout'>Déconnexion</a> 
+		</div> <?php }
+			else{
+				?>    	<div>
     		<a href='index.php?action=register'>Inscription</a>
     	</div>
     	<div>
@@ -22,15 +29,11 @@
     			<label>Mot de passe</label><input type="password" name="pass"/>
     			<input type="submit" value="Se connecter">
     		</form>
-    	</div>
-    	<div>
-			<?php if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
-					{
-					    echo 'Bonjour ' . $_SESSION['pseudo'];
-					} ?>
-			    <a href='index.php?action=logout'>Déconnexion</a>
+    	</div><?php
+			} ?>
+			    
 			
-    	</div>
+
 
         <?= $content ?>
     </body>

@@ -1,3 +1,3 @@
 <?php 
-header('Location:index.php?action=register');
+header('Location:index.php');
 ?>

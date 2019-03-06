@@ -22,7 +22,7 @@ if (isset($_GET['action'])) {
 		logoutConfirm();
 	}
 	else {
-		echo 'Erreur';
+		echo 'Lien invalide';
 	}
 }
 else{

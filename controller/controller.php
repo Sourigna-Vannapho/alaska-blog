@@ -16,7 +16,6 @@ function register(){
 }
 function registerConfirm(){
 	callRegister();
-	require('view/registerView_post.php');
 }
 function loginConfirm(){
 	callLogin();
