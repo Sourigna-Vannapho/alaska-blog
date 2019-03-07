@@ -21,6 +21,9 @@ if (isset($_GET['action'])) {
 	else if ($_GET['action'] == 'logout'){
 		logoutConfirm();
 	}
+	else if ($_GET['action'] == 'comment_confirm'){
+		commentConfirm();
+	}
 	else {
 		echo 'Lien invalide';
 	}

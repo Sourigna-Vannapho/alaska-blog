@@ -8,8 +8,12 @@ function showPosts(){
 }
 function singlePost(){
 	$post = callPost();
+	$comments = callComments();
 	require('view/showPostView.php');
-
+}
+function commentConfirm(){
+	commentRegister();
+	require('view/comment_post.php');
 }
 function register(){
 	require('view/registerView.php');
@@ -24,4 +28,5 @@ function loginConfirm(){
 function logoutConfirm(){
 	require('view/logout.php');
 }
+
 ?>
