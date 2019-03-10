@@ -28,5 +28,8 @@ function loginConfirm(){
 function logoutConfirm(){
 	require('view/logout.php');
 }
+function adminPanel(){
+	require('view/admin_panel.php');
+}
 
 ?>

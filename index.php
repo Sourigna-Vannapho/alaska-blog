@@ -25,7 +25,7 @@ if (isset($_GET['action'])) {
 		commentConfirm();
 	}
 	else if ($_GET['action'] == 'admin_panel'){
-		
+		adminPanel();
 	}
 	else {
 		echo 'Lien invalide';
