@@ -7,12 +7,12 @@ function showPosts(){
 	require('view/showPostsView.php');
 }
 function singlePost(){
-	$post = callPost();
-	$comments = callComments();
+	$post = callPost($_GET['id']);
+	$comments = callComments($_GET['id']);
 	require('view/showPostView.php');
 }
 function commentConfirm(){
-	commentRegister();
+	commentRegister($_GET['id']);
 	require('view/comment_post.php');
 }
 function register(){

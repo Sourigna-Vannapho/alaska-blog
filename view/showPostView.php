@@ -12,8 +12,10 @@
 
 
 <a href='index.php?action=showPosts'>Retour à l'accueil</a>
+
+<?php 
+if (isset($_SESSION['id']) AND isset($_SESSION['pseudo'])){ ?>
 <p>Connecté en tant que <?= $_SESSION['pseudo'] ?> </p>
-<?php if (isset($_SESSION['id']) AND isset($_SESSION['pseudo'])){ ?>
 <form method="POST" action="index.php?action=comment_confirm&amp;id=<?=$_GET['id'] ?>">
 	<label>Commentaire</label><input type="text" name="comment" />
 	<input type="submit" value="Envoyer" />
@@ -21,10 +23,10 @@
 <div>
 	<h3>Commentaires</h3>
 	<?php
-	while ($test = $comments->fetch())
+	while ($data = $comments->fetch())
 		{ ?>
-		<p>Posté par <?= $test['pseudo'] . ' à ' . $test['date_creation'] ?></p>
-		<p><?php echo $test['comment']; 
+		<p>Posté par <?= htmlspecialchars($data['pseudo']) . ' à ' . $data['date_creation'] ?></p>
+		<p><?php echo nl2br(htmlspecialchars($data['comment'])); 
 	} 
 	$comments->closeCursor(); ?>
 

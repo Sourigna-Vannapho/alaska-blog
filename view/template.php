@@ -18,8 +18,8 @@
 				echo 'Bonjour ' . $_SESSION['pseudo']; ?>
 				<a href='index.php?action=logout'>Déconnexion</a> 
 		</div> <?php }
-			else{
-				?>    	<div>
+			else{ ?>    	
+		<div>
     		<a href='index.php?action=register'>Inscription</a>
     	</div>
     	<div>
