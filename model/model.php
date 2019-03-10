@@ -64,7 +64,7 @@ function callRegister(){
 
 function callLogin(){
 	$bdd = databaseConnect();
-	$req = $bdd->prepare('SELECT id,pass,pseudo FROM utilisateurs WHERE pseudo = :pseudo');
+	$req = $bdd->prepare('SELECT id,pass,pseudo,authority FROM utilisateurs WHERE pseudo = :pseudo');
 	$req->execute(array(
 		'pseudo'=>$_POST['pseudo']));
 	$loginResult = $req->fetch();
@@ -78,6 +78,7 @@ function callLogin(){
 			session_start();
 			$_SESSION['id'] = $loginResult['id'];
 			$_SESSION['pseudo'] = $loginResult['pseudo'];
+			$_SESSION['authority'] = $loginResult['authority'];
 		}
 		else{
 		}

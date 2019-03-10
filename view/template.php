@@ -19,7 +19,14 @@
 				<?php 
 				if (isset($_SESSION['id']) AND isset($_SESSION['pseudo'])){
 					echo 'Bonjour ' . $_SESSION['pseudo']; ?>
+					<br/>
 					<a href='index.php?action=logout'>Déconnexion</a> 
+					<?php 
+					if ($_SESSION['authority'] == 2){ ?>
+						<br/>
+						<a href='index.php?action=admin_panel'>Panneau administrateur</a>
+					<?php } ?>
+					
 			</div> <?php }
 				else{ ?>    	
 			<div>
