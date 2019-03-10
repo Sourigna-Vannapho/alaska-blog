@@ -15,17 +15,23 @@
     <body>
     	<section id='loginSection'>
 	    	<div>
+	    		<a href='index.php'><i class="fas fa-home"> Accueil </i></a><br/><br/>
 	    		<i class="fas fa-user"></i>
 				<?php 
 				if (isset($_SESSION['id']) AND isset($_SESSION['pseudo'])){
 					echo 'Bonjour ' . $_SESSION['pseudo']; ?>
-					<br/>
+					<br/><br/>
 					<a href='index.php?action=logout'>Déconnexion</a> 
 					<?php 
 					if ($_SESSION['authority'] == 2){ ?>
-						<br/>
+						<br/><br/>
 						<a href='index.php?action=admin_panel'>Panneau administrateur</a>
-					<?php } ?>
+						<br/>
+					<?php 
+						if (isset ($_GET['action']) == 'admin_panel'){ ?>
+							<a href='index.php?action=admin_panel'>Ajouter billet</a>
+						<?php }
+					} ?>
 					
 			</div> <?php }
 				else{ ?>    	
@@ -46,7 +52,6 @@
 		</section>
 			
 		<section id='blogSection'>
-			<h1>Billet simple pour l'Alaska</h1>
         	<?= $content ?>
    		</section>
     </body>

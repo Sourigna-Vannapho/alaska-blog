@@ -1,6 +1,7 @@
 <?php $title = 'Billet simple pour l\'Alaska'; ?>
 
 <?php ob_start(); ?>
+<h1>Billet simple pour l'Alaska</h1>
 <?php 
 
 while ($data = $posts->fetch())
@@ -10,7 +11,7 @@ while ($data = $posts->fetch())
 	<h2>
 		<?= htmlspecialchars($data['title']) ?>
 	</h2>
-	<p>
+	<p id='blogEntry'>
 		<?= nl2br(htmlspecialchars($data['content'])) ?>
 	</p>
 	</div>

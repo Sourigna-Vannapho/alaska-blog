@@ -20,7 +20,8 @@ body{
 	background-attachment: fixed;
 	text-align:center;
 	display:flex;
-	justify-content: space-between;
+	justify-content: space-around;
+	margin-top:3em;
 }
 a,h2{
 	font-family: 'robotoregular',serif;
@@ -33,12 +34,17 @@ h1{
 a{
 	text-decoration: none;
 }
+.fa-home{
+	font-size:2em;
+	
+}
 #blogSection,#loginSection{
 	background-color:rgba(255,255,255,0.8);	
 }
 #blogSection{
-	width:80%;
+	width:70%;
 	display:inline-block;
+	padding:3em;
 }
 #loginSection{
 	padding:2em;
@@ -52,7 +58,7 @@ h2{
 #datePost{
 	font-style:italic;
 }
-#blogSection p{
+#blogEntry{
 	background-color:rgba(213,169,113,0.6);
 }
 

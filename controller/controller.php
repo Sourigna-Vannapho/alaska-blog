@@ -29,6 +29,7 @@ function logoutConfirm(){
 	require('view/logout.php');
 }
 function adminPanel(){
+	$posts=callPosts();
 	require('view/admin_panel.php');
 }
 
