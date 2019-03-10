@@ -1,0 +1,61 @@
+@font-face{
+	font-family:'lato';
+	src: url("../fonts/Lato-Regular.ttf") format('truetype');
+}
+@font-face {
+    font-family: 'robotoregular';
+    src: url('../fonts/Roboto-Regular.eot');
+    src: url('../fonts/Roboto-Regular.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Roboto-Regular.woff2') format('woff2'),
+         url('../fonts/Roboto-Regular.woff') format('woff'),
+         url('../fonts/Roboto-Regular.ttf') format('truetype'),
+         url('../fonts/Roboto-Regular.svg#robotoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body{
+	background-image:url("../images/background.jpg");
+	background-repeat:no-repeat;
+	background-attachment: fixed;
+	text-align:center;
+	display:flex;
+	justify-content: space-between;
+}
+a,h2{
+	font-family: 'robotoregular',serif;
+}
+
+h1{
+	font-family: 'lato' ,serif;
+}
+
+a{
+	text-decoration: none;
+}
+#blogSection,#loginSection{
+	background-color:rgba(255,255,255,0.8);	
+}
+#blogSection{
+	width:80%;
+	display:inline-block;
+}
+#loginSection{
+	padding:2em;
+}
+h1{
+	font-size:3em;
+}
+h2{
+	background-color:rgba(174,131,76,0.6);
+}
+#datePost{
+	font-style:italic;
+}
+#blogSection p{
+	background-color:rgba(213,169,113,0.6);
+}
+
+#bloctxt{
+
+}
