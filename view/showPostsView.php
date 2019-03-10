@@ -16,7 +16,7 @@ while ($data = $posts->fetch())
 	</p>
 	</div>
 	<span id='datePost'><?= 'Posté le ' . $data['date_creation']?> </span>
-	<a href='index.php?action=post&amp;id=<?= $data['id']?>'><?= $data['nombreComm'] . ' Commentaire(s)' ?></a>
+	<a href='index.php?action=post&amp;id=<?= $data['id']?>'><i class="far fa-comments"></i><?= $data['nombreComm'] . ' Commentaire(s)' ?></a>
 <?php
 }
 $posts->closeCursor();

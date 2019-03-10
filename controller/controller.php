@@ -32,5 +32,8 @@ function adminPanel(){
 	$posts=callPosts();
 	require('view/admin_panel.php');
 }
+function addEntry(){
+	
+}
 
 ?>

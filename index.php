@@ -27,6 +27,9 @@ if (isset($_GET['action'])) {
 	else if ($_GET['action'] == 'admin_panel'){
 		adminPanel();
 	}
+	else if ($_GET['action'] == 'add_entry'){
+		addEntry();
+	}
 	else {
 		echo 'Lien invalide';
 	}
