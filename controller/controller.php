@@ -36,7 +36,7 @@ function addEntry(){
 	require('view/add_entry.php');
 }
 function addEntryConfirm(){
-	
+	require('view/add_entry_post.php');
 }
 
 ?>
