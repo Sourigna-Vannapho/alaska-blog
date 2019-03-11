@@ -30,6 +30,9 @@ if (isset($_GET['action'])) {
 	else if ($_GET['action'] == 'add_entry'){
 		addEntry();
 	}
+	else if ($_GET['action'] == 'add_entry_confirm'){
+		addEntryConfirm();
+	}
 	else {
 		echo 'Lien invalide';
 	}

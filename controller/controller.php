@@ -35,5 +35,8 @@ function adminPanel(){
 function addEntry(){
 	require('view/add_entry.php');
 }
+function addEntryConfirm(){
+	
+}
 
 ?>
