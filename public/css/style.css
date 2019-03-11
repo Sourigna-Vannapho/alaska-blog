@@ -23,7 +23,7 @@ body{
 	justify-content: space-around;
 	margin-top:3em;
 }
-a,h2{
+a,h2,p{
 	font-family: 'robotoregular',serif;
 }
 

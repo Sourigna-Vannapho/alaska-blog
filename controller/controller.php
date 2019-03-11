@@ -33,7 +33,7 @@ function adminPanel(){
 	require('view/admin_panel.php');
 }
 function addEntry(){
-	
+	require('view/add_entry.php');
 }
 
 ?>
