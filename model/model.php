@@ -6,9 +6,9 @@
 
 function callPosts(){
 	$bdd = databaseConnect();
-	$req = $bdd->query('SELECT billets.id,billets.title,billets.content,DATE_FORMAT(billets.entry_date, \'%d/%m/%Y à %Hh%imin%ss\') AS date_creation, COUNT(*) nombreComm
+	$req = $bdd->query('SELECT billets.id,billets.title,billets.content,DATE_FORMAT(billets.entry_date, \'%d/%m/%Y à %Hh%imin%ss\') AS date_creation, COUNT(commentaires.id_billet) nombreComm
 		FROM commentaires 
-		INNER JOIN billets on commentaires.id_billet=billets.id
+		RIGHT JOIN billets on commentaires.id_billet=billets.id
 		GROUP BY billets.id
 		ORDER BY date_creation DESC');
 	return $req;
@@ -83,6 +83,14 @@ function callLogin(){
 		else{
 		}
 	}
+}
+
+function postEntry(){
+	$bdd = databaseConnect();
+	$req = $bdd->prepare('INSERT INTO billets(title,content,entry_date) VALUES (:title,:content,NOW())');
+	$req->execute(array(
+		'title'=>$_POST['entryTitle'],
+		'content'=>$_POST['entryContent']));
 }
 
 function databaseConnect(){

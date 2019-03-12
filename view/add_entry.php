@@ -6,7 +6,7 @@
 	<label>Titre</label>
 	<input type="text" name="entryTitle"/><br/>
     <label>Contenu</label><br/>
-    <textarea id="mytextarea" type="text" name="entry"></textarea>
+    <textarea id="mytextarea" type="text" name="entryContent"></textarea>
     <br/>
     <input type="submit" value="Envoyer" />
 </form>

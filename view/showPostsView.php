@@ -12,7 +12,7 @@ while ($data = $posts->fetch())
 		<?= htmlspecialchars($data['title']) ?>
 	</h2>
 	<p id='blogEntry'>
-		<?= nl2br(htmlspecialchars($data['content'])) ?>
+		<?= ($data['content']) ?>
 	</p>
 	</div>
 	<span id='datePost'><?= 'Posté le ' . $data['date_creation']?> </span>
