@@ -31,7 +31,11 @@ if (isset($_GET['action'])) {
 		addEntry();
 	}
 	else if ($_GET['action'] == 'add_entry_confirm'){
-		addEntryConfirm();
+		if (isset($_GET['id'])){
+			updateEntryConfirm();
+		}
+		else{
+			addEntryConfirm();}
 	}
 	else {
 		echo 'Lien invalide';
