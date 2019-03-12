@@ -102,6 +102,12 @@ function editedEntry($postId){
 		'id'=>$postId));
 }
 
+function deleteEntry($postId){
+	$bdd = databaseConnect();
+	$req = $bdd->prepare('DELETE FROM billets WHERE id = :id');
+	$req->execute(array('id'=>$postId));
+}
+
 function databaseConnect(){
 	$db = new PDO('mysql:host=localhost;dbname=blog_alaska;charset=utf8', 'root', ''); //A modifier par la suite (Effacer le commentaire lorsque effectué)
 	return $db;

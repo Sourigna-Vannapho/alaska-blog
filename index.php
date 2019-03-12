@@ -37,7 +37,7 @@ if (isset($_GET['action'])) {
 		else{
 			addEntryConfirm();}
 	}
-	else if ($_GET['delete_entry']){
+	else if ($_GET['action'] == 'delete_entry'){
 		deleteEntryConfirm();
 
 	}

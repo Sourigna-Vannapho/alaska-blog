@@ -47,6 +47,7 @@ function updateEntryConfirm(){
 	require('view/add_entry_post.php');
 }
 function deleteEntryConfirm(){
-	
+	deleteEntry($_GET['id']);
+	require('view/delete_entry_post.php');
 }
 ?>
