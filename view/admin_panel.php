@@ -18,7 +18,7 @@ while ($data = $posts->fetch())
 	<span id='datePost'><?= 'Posté le ' . $data['date_creation'] . ' - '?> </span>
 	<a href='index.php?action=post&amp;id=<?= $data['id']?>'><i class="far fa-comments"></i><?= $data['nombreComm'] . ' Commentaire(s)' ?></a>
 	<br/>
-	<a href=''><i class="fas fa-edit"></i>Modifier</a>
+	<a href='index.php?action=add_entry&amp;id=<?= $data['id']?>'><i class="fas fa-edit"></i>Modifier</a>
 	<a href=''><i class="fas fa-trash-alt"></i>Supprimer</a>
 <?php
 }

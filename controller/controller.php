@@ -33,6 +33,9 @@ function adminPanel(){
 	require('view/admin_panel.php');
 }
 function addEntry(){
+	if (isset($_GET['id']))
+		{$post = callPost($_GET['id']);};
+	
 	require('view/add_entry.php');
 }
 function addEntryConfirm(){
