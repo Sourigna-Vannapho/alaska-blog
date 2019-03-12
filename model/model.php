@@ -108,6 +108,12 @@ function deleteEntry($postId){
 	$req->execute(array('id'=>$postId));
 }
 
+function deleteComments($postId){
+	$bdd = databaseConnect();
+	$req = $bdd->prepare('DELETE FROM commentaires WHERE id_billet = :id');
+	$req->execute(array('id'=>$postId));
+}
+
 function databaseConnect(){
 	$db = new PDO('mysql:host=localhost;dbname=blog_alaska;charset=utf8', 'root', ''); //A modifier par la suite (Effacer le commentaire lorsque effectué)
 	return $db;
