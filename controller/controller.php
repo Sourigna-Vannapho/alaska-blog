@@ -42,5 +42,8 @@ function addEntryConfirm(){
 	$entry=postEntry();
 	require('view/add_entry_post.php');
 }
-
+function updateEntryConfirm(){
+	$entry=editedEntry($_GET['id']);
+	require('view/add_entry_post.php');
+}
 ?>

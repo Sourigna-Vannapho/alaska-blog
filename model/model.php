@@ -93,6 +93,15 @@ function postEntry(){
 		'content'=>$_POST['entryContent']));
 }
 
+function editedEntry($postId){
+	$bdd = databaseConnect();
+	$req = $bdd->prepare('UPDATE billets SET title = :title, content = :content WHERE id = :id');
+	$req->execute(array(
+		'title'=>$_POST['entryTitle'],
+		'content'=>$_POST['entryContent'],
+		'id'=>$postId));
+}
+
 function databaseConnect(){
 	$db = new PDO('mysql:host=localhost;dbname=blog_alaska;charset=utf8', 'root', ''); //A modifier par la suite (Effacer le commentaire lorsque effectué)
 	return $db;
