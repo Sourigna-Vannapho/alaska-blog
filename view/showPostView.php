@@ -6,7 +6,7 @@
 		<h2>
 			<?= htmlspecialchars($post['title'])?> 
 		</h2>
-		<p id='blogEntry'><?= nl2br(htmlspecialchars($post['content'])) ?> </p>
+		<div id='blogEntry'><?= $post['content'] ?> </div>
 	</div>
 
 <p><?= 'Posté le ' . $post['date_creation']?> </p>

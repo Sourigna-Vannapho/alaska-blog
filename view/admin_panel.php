@@ -6,14 +6,14 @@ while ($data = $posts->fetch())
 {
 ?>
 	<div id='bloctxt'>
-	<h2>
-		<?= htmlspecialchars($data['title']) ?>
-	</h2>
-	<p>
-		<?php $entrySummary = str_split($data['content'],100);
-		echo nl2br(htmlspecialchars($entrySummary[0])) . '[...]';
-		  ?>
-	</p>
+		<h2>
+			<?= htmlspecialchars($data['title']) ?>
+		</h2>
+		<div id='blogEntry'>
+			<?php $entrySummary = str_split($data['content'],100);
+			echo ($entrySummary[0]) . '[...]';
+			  ?>
+		</div>
 	</div>
 	<span id='datePost'><?= 'Posté le ' . $data['date_creation'] . ' - '?> </span>
 	<a href='index.php?action=post&amp;id=<?= $data['id']?>'><i class="far fa-comments"></i><?= $data['nombreComm'] . ' Commentaire(s)' ?></a>
