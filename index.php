@@ -37,6 +37,10 @@ if (isset($_GET['action'])) {
 		else{
 			addEntryConfirm();}
 	}
+	else if ($_GET['delete_entry']){
+		deleteEntryConfirm();
+
+	}
 	else {
 		echo 'Lien invalide';
 	}
