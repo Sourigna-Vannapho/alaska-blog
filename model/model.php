@@ -54,11 +54,10 @@ function callRegister(){
 			'pseudo' =>$_POST['pseudo'],
 			'pass' =>$pass_hash
 		));
-		header('Location:index.php');
 	}
-	else{
-		header('Location:index.php?action=register');
+	else{	
 	}
+	return $pseudoAvailable;
 }
 
 
