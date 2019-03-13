@@ -23,7 +23,8 @@ body{
 	justify-content: space-around;
 	margin-top:3em;
 }
-a,h2,p{
+
+a,h2,p,label,#comment,input{
 	font-family: 'robotoregular',serif;
 }
 
@@ -35,34 +36,57 @@ a{
 	text-decoration: none;
 }
 
+h2{
+	padding:5px;
+}
+
 .fa-home{
 	font-size:2em;
-	
 }
+
 #blogSection,#loginSection{
 	background-color:rgba(255,255,255,0.8);	
 }
+
 #blogSection{
 	width:70%;
 	display:inline-block;
 	padding:3em;
 }
+
 #loginSection{
 	padding:2em;
 }
+
 h1{
 	font-size:3em;
 }
+
 h2{
 	background-color:rgba(174,131,76,0.6);
 }
-#datePost{
+
+#datePost,.info{
 	font-style:italic;
 }
+
 #blogEntry{
 	background-color:rgba(213,169,113,0.6);
 }
 
-#bloctxt{
+#blogEntry p{
+	margin-top:-20px;
+}
 
+#entryTitle{
+	width:40%;
+}
+
+#mytextarea{
+	height:40em;
+}
+
+#comment{
+	width:40%;
+	height:5em;
 }
