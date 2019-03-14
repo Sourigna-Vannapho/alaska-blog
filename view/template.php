@@ -33,10 +33,12 @@
 						<a href='index.php?action=admin_panel'>Panneau administrateur</a>
 						<br/>
 					<?php 
-						if (isset ($_GET['action']) == 'admin_panel'){ ?>
+						if ((isset ($_GET['action']))){
+							if ($_GET['action'] == 'admin_panel')
+						{ ?>
 							<a href='index.php?action=add_entry'>Ajouter billet</a>
 						<?php }
-					} ?>
+					}} ?>
 					
 			</div> <?php }
 				else{ ?>    	

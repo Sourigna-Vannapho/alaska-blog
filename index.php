@@ -45,7 +45,7 @@ if (isset($_GET['action'])) {
 		commentReportConfirm();
 	}
 	else {
-		echo 'Lien invalide';
+		showPosts();
 	}
 }
 else{

@@ -20,9 +20,10 @@ while ($data = $posts->fetch())
 	<a href='index.php?action=post&amp;id=<?= $data['id']?>'><i class="far fa-comments"></i><?= $data['nombreComm'] . ' Commentaire(s)' ?></a>
 	<br/>
 	<a href='index.php?action=add_entry&amp;id=<?= $data['id']?>'><i class="fas fa-edit"></i>Modifier</a>
-	<a href='index.php?action=delete_entry&amp;id=<?= $data['id']?>'><i class="fas fa-trash-alt"></i>Supprimer</a>
+	<a id='deleteEntryBtn' href='#' onclick='deleteConfirm(<?=$data['id']?>)'><i class="fas fa-trash-alt"></i>Supprimer</a>
 <?php
 }
 ?>
 <?php $content = ob_get_clean(); ?>
+<script src="public/script/script_admin.js"></script>
 <?php require('template.php'); ?>
