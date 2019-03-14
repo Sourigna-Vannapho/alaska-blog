@@ -67,10 +67,9 @@ function callLogin(){
 	$req->execute(array(
 		'pseudo'=>$_POST['pseudo']));
 	$loginResult = $req->fetch();
-
 	$passwordCheck = password_verify($_POST['pass'],$loginResult['pass']);
-	echo $_POST['pass'] . $loginResult['pass'] . $loginResult['pseudo'];
 	if (!$loginResult){
+		return true;
 	}
 	else{
 		if($passwordCheck){
@@ -80,6 +79,8 @@ function callLogin(){
 			$_SESSION['authority'] = $loginResult['authority'];
 		}
 		else{
+			return true;
+			
 		}
 	}
 }

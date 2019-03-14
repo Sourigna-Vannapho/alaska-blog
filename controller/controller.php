@@ -23,7 +23,7 @@ function registerConfirm(){
 	require('view/registerView_post.php');
 }
 function loginConfirm(){
-	callLogin();
+	$loginCheck = callLogin();
 	require('view/login_post.php');
 }
 function logoutConfirm(){

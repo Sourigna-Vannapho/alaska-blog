@@ -54,8 +54,15 @@
 	    			<br/><br/>
 	    			<input type="submit" value="Se connecter">
 	    		</form>
+	    		<br/>
+	    		<?php if (isset($_GET['login_fail'])){
+	    			if ($_GET['login_fail'] == true)
+	    			echo 'Identifiant ou mot de passe incorrect';
+	    		} 
+	    		?>
 	    	</div><?php
-				} ?>
+				} 
+			?>
 		</section>
 			
 		<section id='blogSection'>
