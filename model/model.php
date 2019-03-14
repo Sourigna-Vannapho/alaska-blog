@@ -23,7 +23,7 @@ function callPost($postId){
 }
 function callComments($postId){
 	$bdd = databaseConnect();
-	$comment = $bdd->prepare('SELECT utilisateurs.pseudo AS pseudo,commentaires.id_billet,commentaires.content AS comment,commentaires.report_status, DATE_FORMAT(commentaires.date, \'%d/%m/%Y à %Hh%imin%ss\') AS date_creation 
+	$comment = $bdd->prepare('SELECT utilisateurs.pseudo AS pseudo,commentaires.id_billet,commentaires.id,commentaires.content AS comment,commentaires.report_status, DATE_FORMAT(commentaires.date, \'%d/%m/%Y à %Hh%imin%ss\') AS date_creation 
 		FROM commentaires 
 		INNER JOIN utilisateurs ON commentaires.id_pseudo=utilisateurs.id
 		WHERE commentaires.id_billet = :id_billet
@@ -113,6 +113,12 @@ function deleteComments($postId){
 	$req->execute(array('id'=>$postId));
 }
 
+function commentReport($commentId){
+	$bdd = databaseConnect();
+	$req = $bdd->prepare('UPDATE commentaires SET report_status = report_status+1 WHERE id = :commentId');
+	$req->execute(array(
+		'commentId' =>$commentId));
+}
 function databaseConnect(){
 	$db = new PDO('mysql:host=localhost;dbname=blog_alaska;charset=utf8', 'root', ''); //A modifier par la suite (Effacer le commentaire lorsque effectué)
 	return $db;

@@ -52,4 +52,8 @@ function deleteEntryConfirm(){
 	deleteComments($_GET['id']);
 	require('view/delete_entry_post.php');
 }
+function commentReportConfirm(){
+	commentReport($_GET['comment_id']);
+	require('view/comment_report_post.php');
+}
 ?>

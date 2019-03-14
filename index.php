@@ -42,7 +42,7 @@ if (isset($_GET['action'])) {
 
 	}
 	else if ($_GET['action'] == 'report_comment'){
-		
+		commentReportConfirm();
 	}
 	else {
 		echo 'Lien invalide';
