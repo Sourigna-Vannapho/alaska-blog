@@ -25,7 +25,10 @@ if (isset($_SESSION['id']) AND isset($_SESSION['pseudo'])){ ?>
 	<?php
 	while ($data = $comments->fetch())
 		{ ?>
-		<p>Posté par <?= htmlspecialchars($data['pseudo']) . ' à ' . $data['date_creation'] ?></p>
+		<p>Posté par <?= htmlspecialchars($data['pseudo']) . ' à ' . $data['date_creation'];
+		if (isset($_SESSION['id'])){
+			?><a href="#"> <i class="fas fa-flag"></i>Signaler </a><?php } ?>
+		</p> 
 		<p><?php echo nl2br(htmlspecialchars($data['comment'])); 
 	} 
 	$comments->closeCursor(); ?>
