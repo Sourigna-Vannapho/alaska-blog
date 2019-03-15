@@ -15,7 +15,7 @@ while ($data = $req->fetch())
 			</div>
 			<div id='reportRight'>
 				<a class='info' href='index.php?action=post&amp;id=<?= $data['billet_id'].'#'. $data['comment_id']?>'><i class="far fa-eye"></i>Voir le commentaire</a>
-				<a href='index.php?action=delete_comment&amp;id=<?= $data['comment_id']?>'><i class="fas fa-trash-alt"></i>Supprimer le commentaire</a>
+				<a id='deleteCommentBtn' href='#' onclick='deleteCommentConfirm(<?= $data['comment_id']?>)'><i class="fas fa-trash-alt"></i>Supprimer le commentaire</a>
 			</div>
 		</div>
 
@@ -24,4 +24,5 @@ while ($data = $req->fetch())
 	 ?>
 <?php $req->closeCursor(); ?>
 <?php $content = ob_get_clean(); ?>
+<script src="public/script/script_admin.js"></script>
 <?php require('template.php'); ?>

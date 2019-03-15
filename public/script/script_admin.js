@@ -1,9 +1,15 @@
-function deleteConfirm(postId){
+function deletePostConfirm(postId){
 	if(confirm("Désirez vous vraiment supprimer cet article ainsi que les commentaires associés ?"))
-		{var idpage = postId;
-			link="index.php?action=delete_entry&id=" + idpage;
+		{document.getElementById("deleteEntryBtn").href="index.php?action=delete_entry&id=" + postId;
 	}
 	else{
 	}
-	document.getElementById("deleteEntryBtn").href = link;
-	};
+};
+
+function deleteCommentConfirm(commentId){
+	if (confirm("Désirez vous vraiment supprimer ce commentaire ?"))
+		{document.getElementById("deleteCommentBtn").href="index.php?action=delete_comment&id=" + commentId;
+	}
+	else{
+	}
+};
