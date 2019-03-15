@@ -44,6 +44,9 @@ if (isset($_GET['action'])) {
 	else if ($_GET['action'] == 'report_comment'){
 		commentReportConfirm();
 	}
+	else if ($_GET['action'] == 'admin_comment'){
+		adminComment();
+	}
 	else {
 		showPosts();
 	}

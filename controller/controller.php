@@ -56,4 +56,7 @@ function commentReportConfirm(){
 	commentReport($_GET['comment_id']);
 	require('view/comment_report_post.php');
 }
+function adminComment(){
+
+}
 ?>

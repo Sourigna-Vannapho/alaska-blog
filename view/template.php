@@ -31,12 +31,15 @@
 					if ($_SESSION['authority'] == 2){ ?>
 						<br/><br/>
 						<a href='index.php?action=admin_panel'>Panneau administrateur</a>
-						<br/>
+						<br/><br/>
 					<?php 
 						if ((isset ($_GET['action']))){
 							if ($_GET['action'] == 'admin_panel')
 						{ ?>
+							<p>Fonctions administrateur</p>
 							<a href='index.php?action=add_entry'>Ajouter billet</a>
+							<br/>
+							<a href='index.php?action=admin_comment'>Signalement commentaires</a>
 						<?php }
 					}} ?>
 					
