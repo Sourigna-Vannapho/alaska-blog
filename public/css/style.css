@@ -90,3 +90,22 @@ h2{
 	width:40%;
 	height:5em;
 }
+
+#infoReportedComment{
+	display:flex;
+	justify-content: space-between;
+}
+
+#reportLeft{
+	display:flex;
+}
+
+#infoReportedComment .info{
+	margin-right:1em;
+}
+
+.reportedComment{
+	padding-top:1em;
+	padding-bottom:1em;
+	background-color:rgba(188,92,78,0.6);
+}
