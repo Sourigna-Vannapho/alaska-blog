@@ -8,8 +8,9 @@ while ($data = $req->fetch())
 	if ($data['report_status']>0){?>
 		<p><?= $data['content']?>
 		</p>
-		<p>Nom de signalement(s) : <?= $data['report_status'] ?></p>
+		<p>Nombre de signalement(s) : <?= $data['report_status'] ?></p>
 		<p>Posté par <?= $data['pseudo'] ?> dans l'entrée <?= htmlspecialchars($data['title']) ?></p>	
+		<a href='index.php?action=post&amp;id=<?= $data['billet_id'].'#'. $data['comment_id']?>'>Voir le commentaire</a>
 
 	<?php
 	}}

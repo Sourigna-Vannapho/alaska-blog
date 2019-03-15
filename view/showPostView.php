@@ -25,7 +25,7 @@ if (isset($_SESSION['id']) AND isset($_SESSION['pseudo'])){ ?>
 	<?php
 	while ($data = $comments->fetch())
 		{ ?>
-		<p>Posté par <?= htmlspecialchars($data['pseudo']) . ' à ' . $data['date_creation'];
+		<p id='<?= $data['id']?>'>Posté par <?= htmlspecialchars($data['pseudo']) . ' à ' . $data['date_creation'];
 		if (isset($_SESSION['id'])){
 			?><a href="index.php?action=report_comment&amp;comment_id=<?=$data['id']?>&amp;id=<?=$_GET['id']?>"> <i class="fas fa-flag"></i>Signaler </a><?php } ?>
 		</p> 

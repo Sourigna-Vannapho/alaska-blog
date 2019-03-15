@@ -123,7 +123,7 @@ function commentReport($commentId){
 
 function reportedComments(){
 	$bdd = databaseConnect();
-	$req = $bdd->query('SELECT commentaires.id,commentaires.id_pseudo,commentaires.id_billet,commentaires.content,commentaires.report_status,billets.id,billets.title,DATE_FORMAT(billets.entry_date, \'%d/%m/%Y à %Hh%imin%ss\') AS date_creation,
+	$req = $bdd->query('SELECT commentaires.id AS comment_id,commentaires.id_pseudo,commentaires.id_billet,commentaires.content,commentaires.report_status,billets.id AS billet_id,billets.title,DATE_FORMAT(billets.entry_date, \'%d/%m/%Y à %Hh%imin%ss\') AS date_creation,
 		utilisateurs.pseudo
 		FROM commentaires 
 		RIGHT JOIN billets on commentaires.id_billet=billets.id
