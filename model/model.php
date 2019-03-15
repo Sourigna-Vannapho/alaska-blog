@@ -132,6 +132,11 @@ function reportedComments(){
 	return $req;
 }
 
+function deleteReportedComment($commentId){
+	$bdd = databaseConnect();
+	$comment = $bdd->prepare('DELETE FROM commentaires WHERE id=:commentId');
+	$comment->execute(array('commentId'=>$commentId));
+}
 function databaseConnect(){
 	$db = new PDO('mysql:host=localhost;dbname=blog_alaska;charset=utf8', 'root', ''); //A modifier par la suite (Effacer le commentaire lorsque effectué)
 	return $db;

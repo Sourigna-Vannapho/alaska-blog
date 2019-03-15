@@ -36,7 +36,6 @@ function adminPanel(){
 function addEntry(){
 	if (isset($_GET['id']))
 		{$post = callPost($_GET['id']);};
-	
 	require('view/add_entry.php');
 }
 function addEntryConfirm(){
@@ -61,6 +60,7 @@ function adminComment(){
 	require('view/admin_comment_report.php');
 }
 function deleteCommentConfirm(){
-	
+	deleteReportedComment($_GET['id']);
+	require('view/admin_comment_delete_post.php');
 }
 ?>
