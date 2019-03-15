@@ -57,6 +57,7 @@ function commentReportConfirm(){
 	require('view/comment_report_post.php');
 }
 function adminComment(){
-
+	$req = reportedComments();
+	require('view/admin_comment_report.php');
 }
 ?>

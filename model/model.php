@@ -6,7 +6,7 @@
 
 function callPosts(){
 	$bdd = databaseConnect();
-	$req = $bdd->query('SELECT billets.id,billets.title,billets.content,DATE_FORMAT(billets.entry_date, \'%d/%m/%Y à %Hh%imin%ss\') AS date_creation, COUNT(commentaires.id_billet) nombreComm
+	$req = $bdd->query('SELECT billets.id,billets.title,billets.content,DATE_FORMAT(billets.entry_date, \'%d/%m/%Y à %Hh%imin%ss\') AS date_creation, COUNT(commentaires.id_billet) nombreComm 
 		FROM commentaires 
 		RIGHT JOIN billets on commentaires.id_billet=billets.id
 		GROUP BY billets.id
@@ -120,6 +120,18 @@ function commentReport($commentId){
 	$req->execute(array(
 		'commentId' =>$commentId));
 }
+
+function reportedComments(){
+	$bdd = databaseConnect();
+	$req = $bdd->query('SELECT commentaires.id,commentaires.id_pseudo,commentaires.id_billet,commentaires.content,commentaires.report_status,billets.id,billets.title,DATE_FORMAT(billets.entry_date, \'%d/%m/%Y à %Hh%imin%ss\') AS date_creation,
+		utilisateurs.pseudo
+		FROM commentaires 
+		RIGHT JOIN billets on commentaires.id_billet=billets.id
+		INNER JOIN utilisateurs on utilisateurs.id=commentaires.id_pseudo
+		ORDER BY commentaires.report_status DESC');
+	return $req;
+}
+
 function databaseConnect(){
 	$db = new PDO('mysql:host=localhost;dbname=blog_alaska;charset=utf8', 'root', ''); //A modifier par la suite (Effacer le commentaire lorsque effectué)
 	return $db;
