@@ -60,4 +60,7 @@ function adminComment(){
 	$req = reportedComments();
 	require('view/admin_comment_report.php');
 }
+function deleteCommentConfirm(){
+	
+}
 ?>

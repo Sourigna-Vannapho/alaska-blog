@@ -96,7 +96,7 @@ h2{
 	justify-content: space-between;
 }
 
-#reportLeft{
+#reportLeft,#reportRight{
 	display:flex;
 }
 

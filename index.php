@@ -39,13 +39,15 @@ if (isset($_GET['action'])) {
 	}
 	else if ($_GET['action'] == 'delete_entry' && $_SESSION['authority'] == 2){
 		deleteEntryConfirm();
-
 	}
 	else if ($_GET['action'] == 'report_comment'){
 		commentReportConfirm();
 	}
 	else if ($_GET['action'] == 'admin_comment'){
 		adminComment();
+	}
+	else if ($_GET['action'] == 'delete_comment'){
+		deleteCommentConfirm();
 	}
 	else {
 		showPosts();
