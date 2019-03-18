@@ -2,6 +2,7 @@
 
 require_once('model/model.php');
 require_once('model/PostManager.php');
+require_once('model/CommentManager.php');
 
 function showPosts(){
 	$postManager = new PostManager();
@@ -10,12 +11,14 @@ function showPosts(){
 }
 function singlePost(){
 	$postManager = new PostManager();
+	$commentManager = new CommentManager();
 	$post = $postManager->callPost($_GET['id']);
-	$comments = callComments($_GET['id']);
+	$comments = $commentManager->callComments($_GET['id']);
 	require('view/showPostView.php');
 }
 function commentConfirm(){
-	commentRegister($_GET['id']);
+	$commentManager = new CommentManager();
+	$commentManager->commentRegister($_GET['id']);
 	require('view/comment_post.php');
 }
 function register(){
@@ -50,25 +53,28 @@ function addEntryConfirm(){
 }
 function updateEntryConfirm(){
 	$postManager = new PostManager();
-	$entry=editedEntry($_GET['id']);
+	$entry = $postManager->editedEntry($_GET['id']);
 	require('view/add_entry_post.php');
 }
 function deleteEntryConfirm(){
 	$postManager = new PostManager();
 	$postmanager->deleteEntry($_GET['id']);
-	deleteComments($_GET['id']);
+	$commentManager->deleteComments($_GET['id']);
 	require('view/delete_entry_post.php');
 }
 function commentReportConfirm(){
-	commentReport($_GET['comment_id']);
+	$commentManager = new CommentManager();
+	$commentManager->commentReport($_GET['comment_id']);
 	require('view/comment_report_post.php');
 }
 function adminComment(){
-	$req = reportedComments();
+	$commentManager = new CommentManager();
+	$req = $commentManager->reportedComments();
 	require('view/admin_comment_report.php');
 }
 function deleteCommentConfirm(){
-	deleteReportedComment($_GET['id']);
+	$commentManager = new CommentManager();
+	$commentManager->deleteReportedComment($_GET['id']);
 	require('view/admin_comment_delete_post.php');
 }
 ?>
