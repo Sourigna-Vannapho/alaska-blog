@@ -1,12 +1,16 @@
 <?php 
+if(!isset($_SESSION)) 
+	{ 
+        session_start(); 
+    }
 
 require('controller/controller.php');
-
+try{
 if (isset($_GET['action'])) {
 	if ($_GET['action'] == 'showPosts'){
 		showPosts();
 	}
-	else if ($_GET['action'] == 'post'){
+	else if ($_GET['action'] == 'post' && $_GET['id'] > 0){
 		singlePost();
 	}
 	else if ($_GET['action'] == 'register'){
@@ -21,7 +25,7 @@ if (isset($_GET['action'])) {
 	else if ($_GET['action'] == 'logout'){
 		logoutConfirm();
 	}
-	else if ($_GET['action'] == 'comment_confirm'){
+	else if ($_GET['action'] == 'comment_confirm' && $_GET['id'] > 0){
 		commentConfirm();
 	}
 	else if ($_GET['action'] == 'admin_panel' && $_SESSION['authority'] == 2){
@@ -55,5 +59,9 @@ if (isset($_GET['action'])) {
 }
 else{
 	showPosts();
+}}
+catch(Exception $e){
+	$errorMsg = $e->getMessage();
+	require('view/errorView.php');
 }
 ?>
