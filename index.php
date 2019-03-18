@@ -25,33 +25,40 @@ if (isset($_GET['action'])) {
 	else if ($_GET['action'] == 'logout'){
 		logoutConfirm();
 	}
-	else if ($_GET['action'] == 'comment_confirm' && $_GET['id'] > 0){
-		commentConfirm();
-	}
-	else if ($_GET['action'] == 'admin_panel' && $_SESSION['authority'] == 2){
-		adminPanel();
-	}
-	else if ($_GET['action'] == 'add_entry' && $_SESSION['authority'] == 2){
-		addEntry();
-	}
-	else if ($_GET['action'] == 'add_entry_confirm' && $_SESSION['authority'] == 2){
-		if (isset($_GET['id'])){
-			updateEntryConfirm();
-		}
-		else{
-			addEntryConfirm();}
-	}
-	else if ($_GET['action'] == 'delete_entry' && $_SESSION['authority'] == 2){
-		deleteEntryConfirm();
-	}
-	else if ($_GET['action'] == 'report_comment'){
+	else if ($_SESSION){
+		if ($_SESSION['authority'] >= 1){
+			if ($_GET['action'] == 'report_comment'){
 		commentReportConfirm();
-	}
-	else if ($_GET['action'] == 'admin_comment'){
-		adminComment();
-	}
-	else if ($_GET['action'] == 'delete_comment'){
-		deleteCommentConfirm();
+			}
+		}
+		if ($_GET['action'] == 'comment_confirm' && $_GET['id'] > 0){
+		commentConfirm();
+		}
+		else if ($_SESSION['authority'] == 2){
+			if ($_GET['action'] == 'add_entry'){
+			addEntry();
+			}
+			else if ($_GET['action'] == 'add_entry_confirm'){
+				if (isset($_GET['id'])){
+					updateEntryConfirm();
+				}
+				else{
+					addEntryConfirm();
+				}
+			}
+			else if ($_GET['action'] == 'delete_entry'){
+				deleteEntryConfirm();
+			}
+			else if ($_GET['action'] == 'admin_comment'){
+				adminComment();
+			}
+			else if ($_GET['action'] == 'delete_comment'){
+				deleteCommentConfirm();
+			}
+			else{
+				showPosts();
+			}
+		}
 	}
 	else {
 		showPosts();
