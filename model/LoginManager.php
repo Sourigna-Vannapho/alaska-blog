@@ -3,8 +3,10 @@ if(!isset($_SESSION))
 	{ 
         session_start(); 
     }
-    
-class LoginManager{
+
+require_once("model/Manager.php");
+
+class LoginManager extends Manager{
 	function callRegister(){
 	$bdd = $this->databaseConnect();
 	$requestPseudo = $bdd->prepare('SELECT pseudo FROM utilisateurs WHERE pseudo = :pseudo');
@@ -22,6 +24,7 @@ class LoginManager{
 	}
 	return $pseudoAvailable;
 	}
+
 	function callLogin(){
 	$bdd = $this->databaseConnect();
 	$req = $bdd->prepare('SELECT id,pass,pseudo,authority FROM utilisateurs WHERE pseudo = :pseudo');
@@ -45,9 +48,4 @@ class LoginManager{
 		}
 	}
 	}
-	function databaseConnect(){
-	$db = new PDO('mysql:host=localhost;dbname=blog_alaska;charset=utf8', 'root', ''); //A modifier par la suite (Effacer le commentaire lorsque effectué)
-	return $db;
-
-	}	
 }

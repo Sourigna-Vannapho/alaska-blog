@@ -1,6 +1,8 @@
 <?php
-class PostManager
-{
+require_once("model/Manager.php");
+
+class PostManager extends Manager{
+	
 	function callPosts(){
 	$bdd = $this->databaseConnect();
 	$req = $bdd->query('SELECT billets.id,billets.title,billets.content,DATE_FORMAT(billets.entry_date, \'%d/%m/%Y à %Hh%imin%ss\') AS date_creation, COUNT(commentaires.id_billet) nombreComm 
@@ -10,6 +12,7 @@ class PostManager
 		ORDER BY date_creation DESC');
 	return $req;
 	}
+
 	function callPost($postId){
 	$bdd = $this->databaseConnect();
 	$req = $bdd->prepare('SELECT id,title,content,DATE_FORMAT(entry_date, \'%d/%m/%Y à %Hh%imin%ss\') AS date_creation FROM billets WHERE id = :id');
@@ -17,6 +20,7 @@ class PostManager
 	$singlePost = $req->fetch();
 	return $singlePost;
 	}
+
 	function postEntry(){
 	$bdd = $this->databaseConnect();
 	$req = $bdd->prepare('INSERT INTO billets(title,content,entry_date) VALUES (:title,:content,NOW())');
@@ -24,6 +28,7 @@ class PostManager
 		'title'=>$_POST['entryTitle'],
 		'content'=>$_POST['entryContent']));
 	}
+
 	function editedEntry($postId){
 	$bdd = $this->databaseConnect();
 	$req = $bdd->prepare('UPDATE billets SET title = :title, content = :content WHERE id = :id');
@@ -32,14 +37,11 @@ class PostManager
 		'content'=>$_POST['entryContent'],
 		'id'=>$postId));
 	}
+
 	function deleteEntry($postId){
 	$bdd = $this->databaseConnect();
 	$req = $bdd->prepare('DELETE FROM billets WHERE id = :id');
 	$req->execute(array('id'=>$postId));
 	}	
-	function databaseConnect(){
-	$db = new PDO('mysql:host=localhost;dbname=blog_alaska;charset=utf8', 'root', ''); //A modifier par la suite (Effacer le commentaire lorsque effectué)
-	return $db;
 
-	}
 }
