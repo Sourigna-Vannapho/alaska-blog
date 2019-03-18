@@ -1,13 +1,16 @@
 <?php 
 
-require('model/model.php');
+require_once('model/model.php');
+require_once('model/PostManager.php');
 
 function showPosts(){
-	$posts = callPosts();
+	$postManager = new PostManager();
+	$posts = $postManager->callPosts();
 	require('view/showPostsView.php');
 }
 function singlePost(){
-	$post = callPost($_GET['id']);
+	$postManager = new PostManager();
+	$post = $postManager->callPost($_GET['id']);
 	$comments = callComments($_GET['id']);
 	require('view/showPostView.php');
 }
@@ -30,24 +33,29 @@ function logoutConfirm(){
 	require('view/logout.php');
 }
 function adminPanel(){
-	$posts=callPosts();
+	$postManager = new PostManager();
+	$posts = $postManager->callPosts();
 	require('view/admin_panel.php');
 }
 function addEntry(){
+	$postManager = new PostManager();
 	if (isset($_GET['id']))
-		{$post = callPost($_GET['id']);};
+		{$post = $postManager->callPost($_GET['id']);};
 	require('view/add_entry.php');
 }
 function addEntryConfirm(){
-	$entry=postEntry();
+	$postManager = new PostManager();
+	$entry = $postManager->postEntry();
 	require('view/add_entry_post.php');
 }
 function updateEntryConfirm(){
+	$postManager = new PostManager();
 	$entry=editedEntry($_GET['id']);
 	require('view/add_entry_post.php');
 }
 function deleteEntryConfirm(){
-	deleteEntry($_GET['id']);
+	$postManager = new PostManager();
+	$postmanager->deleteEntry($_GET['id']);
 	deleteComments($_GET['id']);
 	require('view/delete_entry_post.php');
 }

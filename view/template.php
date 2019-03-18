@@ -20,13 +20,13 @@
     <body>
     	<section id='loginSection'>
 	    	<div>
-	    		<a href='index.php'><i class="fas fa-home"> Accueil </i></a><br/><br/>
+	    		<a id='accueil' href='index.php'><i class="fas fa-home"></i>Accueil </a><br/><br/>
 	    		<i class="fas fa-user"></i>
 				<?php 
 				if (isset($_SESSION['id']) AND isset($_SESSION['pseudo'])){
 					echo 'Bonjour ' . $_SESSION['pseudo']; ?>
 					<br/><br/>
-					<a href='index.php?action=logout'>Déconnexion</a> 
+					<a href='index.php?action=logout'><i class="fas fa-sign-out-alt"></i>Déconnexion</a> 
 					<?php 
 					if ($_SESSION['authority'] == 2){ ?>
 						<br/><br/>
@@ -34,7 +34,7 @@
 						<br/><br/>
 					<?php 
 						if ((isset ($_GET['action']))){
-							if ($_GET['action'] == 'admin_panel')
+							if ($_GET['action'] == 'admin_panel' || $_GET['action'] =='add_entry' || $_GET['action'] =='admin_comment')
 						{ ?>
 							<p>Fonctions administrateur</p>
 							<a href='index.php?action=add_entry'>Ajouter billet</a>
