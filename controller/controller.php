@@ -1,8 +1,8 @@
 <?php 
 
-require_once('model/model.php');
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
+require_once('model/LoginManager.php');
 
 function showPosts(){
 	$postManager = new PostManager();
@@ -25,11 +25,13 @@ function register(){
 	require('view/registerView.php');
 }
 function registerConfirm(){
-	$registerPost = callRegister();
+	$loginManager = new LoginManager();
+	$registerPost = $loginManager->callRegister();
 	require('view/registerView_post.php');
 }
 function loginConfirm(){
-	$loginCheck = callLogin();
+	$loginManager = new LoginManager();
+	$loginCheck = $loginManager->callLogin();
 	require('view/login_post.php');
 }
 function logoutConfirm(){

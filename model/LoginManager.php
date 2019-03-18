@@ -1,10 +1,12 @@
 <?php 
-    if(!isset($_SESSION)) 
-    { 
+if(!isset($_SESSION)) 
+	{ 
         session_start(); 
-    } 
-function callRegister(){
-	$bdd = databaseConnect();
+    }
+    
+class LoginManager{
+	function callRegister(){
+	$bdd = $this->databaseConnect();
 	$requestPseudo = $bdd->prepare('SELECT pseudo FROM utilisateurs WHERE pseudo = :pseudo');
 	$requestPseudo->execute(array('pseudo'=>$_POST['pseudo']));
 	$pseudoAvailable = $requestPseudo->fetch();
@@ -19,9 +21,9 @@ function callRegister(){
 	else{	
 	}
 	return $pseudoAvailable;
-}
-function callLogin(){
-	$bdd = databaseConnect();
+	}
+	function callLogin(){
+	$bdd = $this->databaseConnect();
 	$req = $bdd->prepare('SELECT id,pass,pseudo,authority FROM utilisateurs WHERE pseudo = :pseudo');
 	$req->execute(array(
 		'pseudo'=>$_POST['pseudo']));
@@ -42,10 +44,10 @@ function callLogin(){
 			
 		}
 	}
-}
-function databaseConnect(){
+	}
+	function databaseConnect(){
 	$db = new PDO('mysql:host=localhost;dbname=blog_alaska;charset=utf8', 'root', ''); //A modifier par la suite (Effacer le commentaire lorsque effectué)
 	return $db;
 
+	}	
 }
-?>

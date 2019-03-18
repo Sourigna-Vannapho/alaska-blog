@@ -12,7 +12,7 @@ function callComments($postId){
 		);
 	$comment->execute(array('id_billet' =>$postId));
 	return $comment;
-}
+	}
 
 function commentRegister($postId){
 	$bdd = $this->databaseConnect();
@@ -21,20 +21,20 @@ function commentRegister($postId){
 	'id_pseudo'=>$_SESSION['id'],
 	'id_billet'=>$postId,
 	'content'=>$_POST['comment']));
-}
+	}
 
 function deleteComments($postId){
 	$bdd = $this->databaseConnect();
 	$req = $bdd->prepare('DELETE FROM commentaires WHERE id_billet = :id');
 	$req->execute(array('id'=>$postId));
-}
+	}
 
 function commentReport($commentId){
 	$bdd = $this->databaseConnect();
 	$req = $bdd->prepare('UPDATE commentaires SET report_status = report_status+1 WHERE id = :commentId');
 	$req->execute(array(
 		'commentId' =>$commentId));
-}
+	}
 
 
 function reportedComments(){
@@ -46,18 +46,17 @@ function reportedComments(){
 		INNER JOIN utilisateurs on utilisateurs.id=commentaires.id_pseudo
 		ORDER BY commentaires.report_status DESC');
 	return $req;
-}
+	}
 
 function deleteReportedComment($commentId){
 	$bdd = $this->databaseConnect();
 	$comment = $bdd->prepare('DELETE FROM commentaires WHERE id=:commentId');
 	$comment->execute(array('commentId'=>$commentId));
-}
+	}
 
 function databaseConnect(){
 	$db = new PDO('mysql:host=localhost;dbname=blog_alaska;charset=utf8', 'root', ''); //A modifier par la suite (Effacer le commentaire lorsque effectué)
 	return $db;
-
-}
+	}
 }
 ?>
