@@ -54,10 +54,13 @@ h2{
 	width:70%;
 	display:inline-block;
 	padding:3em;
+	word-wrap: break-word;
 }
 
 #loginSection{
-	padding:2em;
+	padding:1em;
+	word-wrap: break-word;
+	min-width:13%;
 }
 
 h1{
@@ -110,4 +113,42 @@ h2{
 	padding-top:1em;
 	padding-bottom:1em;
 	background-color:rgba(188,92,78,0.6);
+}
+
+@media screen and (max-width:1024px){
+	body{
+		margin:0;
+		display:block;
+	}
+	#loginSection{
+		display:fixed;
+		margin-bottom:3em;
+	}
+	#loginHome{
+		display:flex;
+		justify-content: space-between;
+
+	}
+	#loginForm{
+		display:hidden;
+		flex-wrap:wrap;
+	}
+	#loginForm br,.responsiveNone{
+		display:none;
+	}
+	#accueil{
+		margin-top:-0.4em;
+	}
+	#blogSection{
+		width:80%;
+	}
+	#adminFunction{
+		display:flex;
+		justify-content:space-around;
+		padding-top:0.5em;
+		padding-bottom:-0.5em;
+	}
+	#adminFunction p{
+		margin-top:0em;
+	}
 }
