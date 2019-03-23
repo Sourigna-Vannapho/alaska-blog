@@ -81,6 +81,8 @@ h2{
 
 #blogEntry p{
 	margin-top:-20px;
+	padding:2em 1em 2em 1em;
+	text-align:left;
 }
 
 #entryTitle{
@@ -94,6 +96,11 @@ h2{
 #comment{
 	width:40%;
 	height:5em;
+}
+
+#registerForm label{
+	width:120px;
+	display:inline-block;
 }
 
 #infoReportedComment{

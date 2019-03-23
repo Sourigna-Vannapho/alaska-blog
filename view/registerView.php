@@ -2,8 +2,8 @@
 <?php ob_start(); ?>
 <h1>Inscription</h1>
 <p class="info">Veuillez remplir les champs ci-dessous pour procéder à votre inscription</p>
-<form method="POST" action="index.php?action=register_confirm">
-	<label>Pseudo : </label><input type="text" name="pseudo"/>
+<form id="registerForm" method="POST" action="index.php?action=register_confirm">
+	<label>Pseudo : </label><input type="text" name="pseudo"/><br/><br/>
 	<label>Mot de passe : </label><input type="password" name="pass"/>
 	<br/><br/>
 	<input type="submit" value="S'inscrire"/>
