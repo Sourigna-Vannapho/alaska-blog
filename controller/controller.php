@@ -80,4 +80,7 @@ function deleteCommentConfirm(){
 	$commentManager->deleteReportedComment($_GET['id']);
 	require('view/admin_comment_delete_post.php');
 }
+function cancelReportConfirm(){
+	$commentManager = new CommentManager();
+}
 ?>
