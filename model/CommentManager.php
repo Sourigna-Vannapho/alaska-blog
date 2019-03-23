@@ -31,10 +31,9 @@ class CommentManager extends Manager{
 
 	function commentReport($commentId){
 		$bdd = $this->databaseConnect();
-		$req = $bdd->prepare('UPDATE commentaires SET report_status = report_status+10 WHERE id = :commentId');
+		$req = $bdd->prepare('UPDATE commentaires SET report_status = report_status+1 WHERE id = :commentId');
 		$req->execute(array(
 			'commentId' =>$commentId));
-		return $req;
 		}
 
 	function reportedComments(){
@@ -53,5 +52,12 @@ class CommentManager extends Manager{
 		$comment = $bdd->prepare('DELETE FROM commentaires WHERE id=:commentId');
 		$comment->execute(array('commentId'=>$commentId));
 		}
+
+	function cancelReportedComment($commentId){
+		$bdd = $this->databaseConnect();
+		$comment = $bdd->prepare('UPDATE comentaires SET report_status = 0 WHERE id = :commenId');
+		$comment->execute(array(
+			'commentId' =>$commentId));
+	}
 }
 ?>
