@@ -15,6 +15,8 @@ while ($data = $req->fetch())
 			</div>
 			<div id='reportRight'>
 				<a class='info' href='index.php?action=post&amp;id=<?= $data['billet_id'].'#'. $data['comment_id']?>'><i class="far fa-eye"></i>Voir le commentaire</a>
+				<a href='index.php?action=cancel_report&amp;id=<?= $data['comment_id']?>'><i class="fas fa-times"></i>Annuler signalement
+				</a>
 				<a id='<?= $data['comment_id']?>' href='#' onclick='deleteCommentConfirm(<?= $data['comment_id']?>)'><i class="fas fa-trash-alt"></i>Supprimer le commentaire</a>
 			</div>
 		</div>

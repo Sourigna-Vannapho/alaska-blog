@@ -55,7 +55,7 @@ class CommentManager extends Manager{
 
 	function cancelReportedComment($commentId){
 		$bdd = $this->databaseConnect();
-		$comment = $bdd->prepare('UPDATE comentaires SET report_status = 0 WHERE id = :commenId');
+		$comment = $bdd->prepare('UPDATE commentaires SET report_status = 0 WHERE id = :commentId');
 		$comment->execute(array(
 			'commentId' =>$commentId));
 	}

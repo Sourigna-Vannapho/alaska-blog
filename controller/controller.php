@@ -83,5 +83,6 @@ function deleteCommentConfirm(){
 function cancelReportConfirm(){
 	$commentManager = new CommentManager();
 	$commentManager->cancelReportedComment($_GET['id']);
+	require('view/admin_cancel_report_post.php');
 }
 ?>

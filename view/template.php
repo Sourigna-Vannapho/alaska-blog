@@ -53,7 +53,8 @@
 	    			echo 'Identifiant ou mot de passe incorrect';
 	    		} 
 	    		?>
-	    	</div><?php
+	    	</div>
+	    	<?php
 				} 
 			?>
 			<?php 
@@ -61,15 +62,18 @@
 				if ($_SESSION['authority'] == 2){
 			if ((isset ($_GET['action']))){
 				if ($_GET['action'] == 'admin_panel' || $_GET['action'] =='add_entry' || $_GET['action'] =='admin_comment')
-						{ ?>
-					<div id='adminFunction'>
-						<p>Fonctions administrateur</p>
-						<a href='index.php?action=add_entry'>Ajouter billet</a>
-						<br/>
-						<a href='index.php?action=admin_comment'>Signalement commentaires</a>
-					</div>
-						<?php }
-			}}}?>
+				{ 
+			?>
+			<div id='adminFunction'>
+				<p>Fonctions administrateur</p>
+				<a href='index.php?action=add_entry'>Ajouter billet</a>
+				<br/>
+				<a href='index.php?action=admin_comment'>Signalement commentaires</a>
+			</div>
+			<?php }
+			}
+				}
+		}?>
 		</section>
 			
 		<section id='blogSection'>

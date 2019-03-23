@@ -58,7 +58,7 @@ try{
 						else if ($_GET['action'] == 'delete_comment'){
 							deleteCommentConfirm();
 						}
-						else if ($GET['action'] == 'cancel_report'){
+						else if ($_GET['action'] == 'cancel_report'){
 							cancelReportConfirm();
 						}
 						else{
