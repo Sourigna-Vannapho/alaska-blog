@@ -4,7 +4,7 @@ class CommentManager extends Manager{
 
 	function callComments($postId){
 		$bdd = $this->databaseConnect();
-		$comment = $bdd->prepare('SELECT utilisateurs.pseudo AS pseudo,commentaires.id_billet,commentaires.id,commentaires.content AS comment,commentaires.report_status, DATE_FORMAT(commentaires.date, \'%d/%m/%Y à %Hh%imin%ss\') AS date_creation 
+		$comment = $bdd->prepare('SELECT utilisateurs.pseudo AS pseudo,commentaires.id_billet,commentaires.id AS id_comment,commentaires.content AS comment,commentaires.report_status, DATE_FORMAT(commentaires.date, \'%d/%m/%Y à %Hh%imin%ss\') AS date_creation 
 			FROM commentaires 
 			INNER JOIN utilisateurs ON commentaires.id_pseudo=utilisateurs.id
 			WHERE commentaires.id_billet = :id_billet
@@ -31,9 +31,10 @@ class CommentManager extends Manager{
 
 	function commentReport($commentId){
 		$bdd = $this->databaseConnect();
-		$req = $bdd->prepare('UPDATE commentaires SET report_status = report_status+1 WHERE id = :commentId');
+		$req = $bdd->prepare('UPDATE commentaires SET report_status = report_status+10 WHERE id = :commentId');
 		$req->execute(array(
 			'commentId' =>$commentId));
+		return $req;
 		}
 
 	function reportedComments(){

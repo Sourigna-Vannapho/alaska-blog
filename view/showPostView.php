@@ -25,12 +25,12 @@ if (isset($_SESSION['id']) AND isset($_SESSION['pseudo'])){ ?>
 	<?php
 	while ($data = $comments->fetch())
 		{ ?>
-		<p id='<?= $data['id']?>'>Posté par <?= htmlspecialchars($data['pseudo']) . ' à ' . $data['date_creation'];
+		<p>Posté par <?= htmlspecialchars($data['pseudo']) . ' à ' . $data['date_creation'];
 		if (isset($_SESSION['id'])){
-			?><a id='commentReportBtn' href="#" onclick='reportCommentConfirm(<?=$data['id']?>,<?=$_GET['id']?>)'> <i class="fas fa-flag"></i>Signaler </a><?php } ?>
+			?><a id='<?= $data['id_comment']?>' href="#" onclick='reportCommentConfirm(<?=$data['id_comment']?>,<?=$_GET['id']?>)'> <i class="fas fa-flag"></i>Signaler </a><?php } ?>
 		</p> 
-		<p><?php echo nl2br(htmlspecialchars($data['comment'])); 
-	} 
+		<p><?php echo nl2br(htmlspecialchars($data['comment'])); ?> </p>
+	<?php } 
 	$comments->closeCursor(); ?>
 
 </div>
