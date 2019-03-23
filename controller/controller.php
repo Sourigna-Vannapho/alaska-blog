@@ -60,7 +60,8 @@ function updateEntryConfirm(){
 }
 function deleteEntryConfirm(){
 	$postManager = new PostManager();
-	$postmanager->deleteEntry($_GET['id']);
+	$commentManager = new CommentManager();
+	$postManager->deleteEntry($_GET['id']);
 	$commentManager->deleteComments($_GET['id']);
 	require('view/delete_entry_post.php');
 }
