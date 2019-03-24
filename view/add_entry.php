@@ -6,7 +6,11 @@
 	<input id="entryTitle" type="text" name="entryTitle" value="<?php if (isset($_GET['id'])){ echo $post['title'];}?>"/><br/><br/>
     <label>Contenu</label><br/><br/>
     <textarea id="mytextarea" type="text" name="entryContent">
-    	<?php if (isset($_GET['id'])){ echo $post['content'];}?>
+    <?php 
+    if (isset($_GET['id'])){ 
+    	echo $post['content'];
+    }
+    ?>
     </textarea>
     <br/>
     <input type="submit" value="Envoyer" />

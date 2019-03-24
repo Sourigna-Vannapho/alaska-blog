@@ -1,8 +1,8 @@
 <?php 
-    if(!isset($_SESSION)) 
-    { 
-        session_start(); 
-    }  ?>
+if(!isset($_SESSION)){ 
+    session_start(); 
+}  
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,23 +17,29 @@
     <body>
     	<section id='loginSection'>
 	    	<div id='loginHome'>
-	    		<a id='accueil' href='index.php'><i class="fas fa-home"></i> Accueil </a><br/><br/>
+	    		<a id='accueil' href='index.php'><i class="fas fa-home"></i> Accueil </a>
+	    		<br/><br/>
 	    		<span>
 	    			<i class="fas fa-user"></i>
 					<?php 
 					if (isset($_SESSION['id']) AND isset($_SESSION['pseudo'])){
-						echo 'Bonjour ' . $_SESSION['pseudo']; ?>
+						echo 'Bonjour ' . $_SESSION['pseudo']; 
+					?>
 				</span>
-					<br/><br/>
+				<br/><br/>
 				<a href='index.php?action=logout'><i class="fas fa-sign-out-alt"></i>Déconnexion</a> 
 				<?php 
-				if ($_SESSION['authority'] == 2){ ?>
-					<br/><br/>
-					<a href='index.php?action=admin_panel'>Panneau administrateur</a>
-					<br/><br/> <?php
-} ?>
+						if ($_SESSION['authority'] == 2){ ?>
+				<br/><br/>
+				<a href='index.php?action=admin_panel'>Panneau administrateur</a>
+				<br/><br/> 
+						<?php
+						} 
+						?>
 					
-			</div> <?php }
+			</div> 
+					<?php 
+					}
 					else{ ?>    	
 			<div>
 	    		<a href='index.php?action=register'>Inscription</a>
@@ -48,21 +54,21 @@
 	    			<input type="submit" value="Se connecter">
 	    		</form>
 	    		<br/>
-	    		<?php if (isset($_GET['login_fail'])){
-	    			if ($_GET['login_fail'] == true)
-	    			echo 'Identifiant ou mot de passe incorrect';
-	    		} 
-	    		?>
+	    				<?php 
+	    				if (isset($_GET['login_fail'])){
+	    					if ($_GET['login_fail'] == true)
+	    						echo 'Identifiant ou mot de passe incorrect';
+	    				} 
+	    				?>
 	    	</div>
-	    	<?php
-				} 
-			?>
+	    			<?php
+					} 
+					?>
 			<?php 
 			if ($_SESSION){
 				if ($_SESSION['authority'] == 2){
-			if ((isset ($_GET['action']))){
-				if ($_GET['action'] == 'admin_panel' || $_GET['action'] =='add_entry' || $_GET['action'] =='admin_comment')
-				{ 
+					if ((isset ($_GET['action']))){
+						if ($_GET['action'] == 'admin_panel' || $_GET['action'] =='add_entry' || $_GET['action'] =='admin_comment'){ 
 			?>
 			<div id='adminFunction'>
 				<p>Fonctions administrateur</p>
@@ -70,10 +76,12 @@
 				<br/>
 				<a href='index.php?action=admin_comment'>Signalement commentaires</a>
 			</div>
-			<?php }
-			}
+			<?php 
+						}
+					}
 				}
-		}?>
+			}
+			?>
 		</section>
 			
 		<section id='blogSection'>

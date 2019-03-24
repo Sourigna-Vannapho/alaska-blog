@@ -2,8 +2,7 @@
 <?php ob_start(); ?>
 <h1>Panneau administrateur</h1>
 <?php 
-while ($data = $posts->fetch())
-{
+while ($data = $posts->fetch()){
 ?>
 	<div id='bloctxt'>
 		<h2>

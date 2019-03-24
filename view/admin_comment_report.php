@@ -3,9 +3,9 @@
 <?php ob_start(); ?>
 <h1>Signalement des commentaires</h1>
 <?php 
-while ($data = $req->fetch())
-	{ 
-	if ($data['report_status']>0){?>
+while ($data = $req->fetch()){
+	if ($data['report_status']>0){
+?>
 		<p class=reportedComment><?= $data['content']?>
 		</p>
 		<div id='infoReportedComment'>
@@ -20,10 +20,10 @@ while ($data = $req->fetch())
 				<a id='<?= $data['comment_id']?>' href='#' onclick='deleteCommentConfirm(<?= $data['comment_id']?>)'><i class="fas fa-trash-alt"></i>Supprimer le commentaire</a>
 			</div>
 		</div>
-
 	<?php
-	}}
-	 ?>
+	}
+}
+	?>
 <?php $req->closeCursor(); ?>
 <?php $content = ob_get_clean(); ?>
 <script src="public/script/script_admin.js"></script>

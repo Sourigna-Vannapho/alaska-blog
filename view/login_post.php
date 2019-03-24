@@ -1,7 +1,7 @@
 <?php 
 if ($loginCheck){
 	header('Location:index.php?login_fail=true');
-}else{
+}
+else{
 	header('Location:index.php');
 }
-?>
