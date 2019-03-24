@@ -79,4 +79,3 @@ catch(Exception $e){
 	$errorMsg = $e->getMessage();
 	require('view/errorView.php');
 }
-?>

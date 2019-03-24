@@ -57,7 +57,9 @@ if(!isset($_SESSION)){
 	    				<?php 
 	    				if (isset($_GET['login_fail'])){
 	    					if ($_GET['login_fail'] == true)
-	    						echo 'Identifiant ou mot de passe incorrect';
+	    				?>
+	    						<p class='warning'>Identifiant ou mot de passe incorrect</p>
+	    				<?php
 	    				} 
 	    				?>
 	    	</div>

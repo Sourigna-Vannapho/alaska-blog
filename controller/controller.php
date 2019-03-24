@@ -85,4 +85,3 @@ function cancelReportConfirm(){
 	$commentManager->cancelReportedComment($_GET['id']);
 	require('view/admin_cancel_report_post.php');
 }
-?>

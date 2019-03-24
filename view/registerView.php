@@ -9,6 +9,15 @@
 	<input type="submit" value="S'inscrire"/>
 </form>
 <br/><br/>
+<?php 
+if (isset($_GET['existing_user'])){
+	if ($_GET['existing_user'] == true){
+?>		<p class='warning'>Ce nom d'utilisateur est déjà utilisé</p>
+<?php
+	}
+}
+?>
+<br/>
 <a href='index.php?action=showPosts'>Retour à l'accueil</a>
 
 <?php $content = ob_get_clean(); ?>

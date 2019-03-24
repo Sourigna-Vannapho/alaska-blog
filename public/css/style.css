@@ -71,8 +71,12 @@ h2{
 	background-color:rgba(174,131,76,0.6);
 }
 
-#datePost,.info{
+#datePost,.info, .warning{
 	font-style:italic;
+}
+
+.warning{
+	color:red;
 }
 
 #blogEntry{

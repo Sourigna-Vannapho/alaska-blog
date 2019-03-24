@@ -60,4 +60,3 @@ class CommentManager extends Manager{
 			'commentId' =>$commentId));
 	}
 }
-?>
