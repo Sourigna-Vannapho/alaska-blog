@@ -4,18 +4,18 @@
 <?php 
 while ($data = $posts->fetch()){
 ?>
-	<div id='bloctxt'>
+	<div class='bloctxt'>
 		<h2>
 			<?= htmlspecialchars($data['title']) ?>
 		</h2>
-		<div id='blogEntry'>
+		<div class='blogEntry'>
 			<?php $entrySummary = str_split($data['content'],200);
 			echo ($entrySummary[0]) . '[...]';
 			  ?>
 		</div>
 	</div>
 	<br/>
-	<span id='datePost'><?= 'Posté le ' . $data['date_creation'] . ' - '?> </span>
+	<span class='datePost'><?= 'Posté le ' . $data['date_creation'] . ' - '?> </span>
 	<a href='index.php?action=post&amp;id=<?= $data['id']?>'><i class="far fa-comments"></i><?= $data['nombreComm'] . ' Commentaire(s)' ?></a>
 	<br/>
 	<a href='index.php?action=add_entry&amp;id=<?= $data['id']?>'><i class="fas fa-edit"></i>Modifier</a>

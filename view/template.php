@@ -4,7 +4,7 @@ if(!isset($_SESSION)){
 }  
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <meta charset="utf-8" />
         <title><?= $title ?></title>
@@ -17,15 +17,15 @@ if(!isset($_SESSION)){
     <body>
     	<section id='loginSection'>
 	    	<div id='loginHome'>
-	    		<a id='accueil' href='index.php'><i class="fas fa-home"></i> Accueil </a>
+	    		<h2><a id='accueil' href='index.php'><i class="fas fa-home"></i> Accueil </a></h2>
 	    		<br/><br/>
-	    		<span>
-	    			<i class="fas fa-user"></i>
 					<?php 
 					if (isset($_SESSION['id']) AND isset($_SESSION['pseudo'])){
-						echo 'Bonjour ' . $_SESSION['pseudo']; 
 					?>
-				</span>
+					<div>
+					<i class="fas fa-user"></i>
+						<?= 'Bonjour ' . $_SESSION['pseudo']; ?>
+					</div>
 				<br/><br/>
 				<a href='index.php?action=logout'><i class="fas fa-sign-out-alt"></i>Déconnexion</a> 
 				<?php 
@@ -35,36 +35,36 @@ if(!isset($_SESSION)){
 				<br/><br/> 
 						<?php
 						} 
-						?>
-					
-			</div> 
+						?> 
 					<?php 
 					}
 					else{ ?>    	
-			<div>
-	    		<a href='index.php?action=register'>Inscription</a>
-	    	</div>
-	    	<div id='loginForm'>
-	    		<p class='responsiveNone'>Se connecter</p>
-	    		<form method="POST" action="index.php?action=login_confirm">
-	    			<label>Pseudo : <br/></label><input type="text" name="pseudo" required/>
-	    			<br/><br/>
-	    			<label>Mot de passe : <br/></label><input type="password" name="pass" required/>
-	    			<br/><br/>
-	    			<input type="submit" value="Se connecter">
-	    		</form>
-	    		<br/>
-	    				<?php 
-	    				if (isset($_GET['login_fail'])){
-	    				?>
-	    						<p class='warning'>Identifiant ou mot de passe incorrect</p>
-	    				<?php
-	    				} 
-	    				?>
-	    	</div>
+				<div>
+		    		<a href='index.php?action=register'><i class="fas fa-user"></i> Inscription</a>
+		    	</div>
+		    	<div id='loginForm'>
+		    		<p class='responsiveNone'>Se connecter</p>
+		    		<form method="POST" action="index.php?action=login_confirm">
+		    			<label>Pseudo : <br/></label><input type="text" name="pseudo" required/>
+		    			<br/><br/>
+		    			<label>Mot de passe : <br/></label><input type="password" name="pass" required/>
+		    			<br/><br/>
+		    			<input type="submit" value="Se connecter">
+		    		</form>
+		    		<br/>
+		    	</div>
+	    		<?php 
+			    		if (isset($_GET['login_fail'])){
+			    		?>
+			    <p class='warning'>Identifiant ou mot de passe incorrect</p>
+			    		<?php
+			    		} 
+			    		?>
+	    	
 	    			<?php
 					} 
 					?>
+			</div>
 			<?php 
 			if ($_SESSION){
 				if ($_SESSION['authority'] == 2){
@@ -83,6 +83,7 @@ if(!isset($_SESSION)){
 				}
 			}
 			?>
+			
 		</section>
 
 		<section id='blogSection'>

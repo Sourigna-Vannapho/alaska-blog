@@ -6,14 +6,14 @@
 while ($data = $req->fetch()){
 	if ($data['report_status']>0){
 ?>
-		<p class=reportedComment><?= $data['content']?>
+		<p class=reportedComment><?= htmlspecialchars($data['content'])?>
 		</p>
-		<div id='infoReportedComment'>
-			<div id='reportLeft'>
+		<div class='infoReportedComment'>
+			<div class='reportLeft'>
 				<p class='info'>Nombre de signalement(s) : <?= $data['report_status'] ?> <i class="fas fa-flag"></i></p>
 				<p class='info'>Posté par <?= $data['pseudo'] ?> dans l'entrée <?= htmlspecialchars($data['title']) ?></p>	
 			</div>
-			<div id='reportRight'>
+			<div class='reportRight'>
 				<a class='info' href='index.php?action=post&amp;id=<?= $data['billet_id'].'#'. $data['comment_id']?>'><i class="far fa-eye"></i>Voir le commentaire</a>
 				<a href='index.php?action=cancel_report&amp;id=<?= $data['comment_id']?>'><i class="fas fa-times"></i>Annuler signalement
 				</a>
