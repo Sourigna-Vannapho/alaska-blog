@@ -3,8 +3,8 @@
 <h1>Inscription</h1>
 <p class="info">Veuillez remplir les champs ci-dessous pour procéder à votre inscription</p>
 <form id="registerForm" method="POST" action="index.php?action=register_confirm">
-	<label>Pseudo : </label><input type="text" name="pseudo"/><br/><br/>
-	<label>Mot de passe : </label><input type="password" name="pass"/>
+	<label>Pseudo : </label><input type="text" name="pseudo" required/><br/><br/>
+	<label>Mot de passe : </label><input type="password" name="pass" required/>
 	<br/><br/>
 	<input type="submit" value="S'inscrire"/>
 </form>

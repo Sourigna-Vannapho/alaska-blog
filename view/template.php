@@ -47,16 +47,15 @@ if(!isset($_SESSION)){
 	    	<div id='loginForm'>
 	    		<p class='responsiveNone'>Se connecter</p>
 	    		<form method="POST" action="index.php?action=login_confirm">
-	    			<label>Pseudo : <br/></label><input type="text" name="pseudo"/>
+	    			<label>Pseudo : <br/></label><input type="text" name="pseudo" required/>
 	    			<br/><br/>
-	    			<label>Mot de passe : <br/></label><input type="password" name="pass"/>
+	    			<label>Mot de passe : <br/></label><input type="password" name="pass" required/>
 	    			<br/><br/>
 	    			<input type="submit" value="Se connecter">
 	    		</form>
 	    		<br/>
 	    				<?php 
 	    				if (isset($_GET['login_fail'])){
-	    					if ($_GET['login_fail'] == true)
 	    				?>
 	    						<p class='warning'>Identifiant ou mot de passe incorrect</p>
 	    				<?php
@@ -85,8 +84,14 @@ if(!isset($_SESSION)){
 			}
 			?>
 		</section>
-			
+
 		<section id='blogSection'>
+			<div>
+				<?php if (isset($_GET['register_success'])){
+				?>
+				<p>Compte créé avec succès !</p>
+				<?php } ?>
+			</div>
         	<?= $content ?>
    		</section>
     </body>

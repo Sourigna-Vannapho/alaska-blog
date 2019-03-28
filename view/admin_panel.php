@@ -9,7 +9,7 @@ while ($data = $posts->fetch()){
 			<?= htmlspecialchars($data['title']) ?>
 		</h2>
 		<div id='blogEntry'>
-			<?php $entrySummary = str_split($data['content'],100);
+			<?php $entrySummary = str_split($data['content'],200);
 			echo ($entrySummary[0]) . '[...]';
 			  ?>
 		</div>

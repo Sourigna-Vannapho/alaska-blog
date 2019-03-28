@@ -67,8 +67,11 @@ try{
 					}
 			else{
 				showPosts();
-				}
 			}
+			}
+		}
+		else{
+		showPosts();
 		}
 	}	
 	else{

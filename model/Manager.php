@@ -1,7 +1,11 @@
 <?php
 class Manager{
 	function databaseConnect(){
-	$db = new PDO('mysql:host=localhost;dbname=blog_alaska;charset=utf8', 'root', ''); //A modifier par la suite (Effacer le commentaire lorsque effectué)
+	$host_name = 'localhost';
+	$database = 'blog_alaska';
+	$user_name = 'root';
+	$password = '';
+	$db = new PDO("mysql:host=$host_name; dbname=$database;", $user_name, $password);
 	return $db;
 	}
 }
