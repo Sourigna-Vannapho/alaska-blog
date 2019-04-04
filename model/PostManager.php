@@ -9,7 +9,7 @@ class PostManager extends Manager{
 		FROM commentaires 
 		RIGHT JOIN billets on commentaires.id_billet=billets.id
 		GROUP BY billets.id
-		ORDER BY date_creation DESC');
+		ORDER BY billets.id DESC');
 	return $req;
 	}
 

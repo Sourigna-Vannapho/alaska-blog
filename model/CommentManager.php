@@ -8,20 +8,21 @@ class CommentManager extends Manager{
 			FROM commentaires 
 			INNER JOIN utilisateurs ON commentaires.id_pseudo=utilisateurs.id
 			WHERE commentaires.id_billet = :id_billet
-			ORDER BY date_creation DESC'
+			ORDER BY commentaires.id DESC'
 			);
 		$comment->execute(array('id_billet' =>$postId));
 		return $comment;
 		}
 
 	function commentRegister($postId){
+		if (trim($_POST['comment']) !== ''){
 		$bdd = $this->databaseConnect();
 		$req = $bdd->prepare('INSERT INTO commentaires(id_pseudo,id_billet,content,date)VALUES(:id_pseudo,:id_billet,:content, NOW())');
 		$req->execute(array(
 		'id_pseudo'=>$_SESSION['id'],
 		'id_billet'=>$postId,
-		'content'=>$_POST['comment']));
-		}
+		'content'=>trim($_POST['comment'])));
+		}}
 
 	function deleteComments($postId){
 		$bdd = $this->databaseConnect();

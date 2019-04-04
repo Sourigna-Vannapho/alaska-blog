@@ -7,7 +7,21 @@ if(!isset($_SESSION)){
 <html lang="fr">
     <head>
         <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Billet simple pour l'Alaska">
         <title><?= $title ?></title>
+        <meta property="og:title" content="Billet simple pour l'Alaska"/>
+	    <meta property="og:type" content="website"/>
+	    <meta property="og:url" content="http://alaska-blog.sourigna-vannapho.com/"/>
+	    <meta property="og:image" content="http://alaska-blog.sourigna-vannapho.com/public/images/banner.jpg"/>
+	    <meta property="og:description" content="Roman hebdomadaire en ligne basé en Alaska"/>
+	    <meta property="fb:app_id" content="966242223397117" />
+	    <meta name="twitter:card" content="summary">
+	    <meta name="twitter:site" content="@Alaska-Blog">
+	    <meta name="twitter:title" content="Billet simple pour l'Alaska">
+	    <meta name="twitter:description" content="Roman hebdomadaire en ligne basé en Alaska">
+	    <meta name="twitter:creator" content="@Alaska-Blog">
+	    <meta name="twitter:image" content="http://alaska-blog.sourigna-vannapho.com/public/images/banner_twitter.jpg">
         <link href="public/css/style.css" rel="stylesheet" /> 
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
         <script src='https://cloud.tinymce.com/5/tinymce.min.js?apiKey=6e98t8myxa3tv4dorwagpgmtq22yc8nu3hu5pk5iubtw4vkb'></script>
