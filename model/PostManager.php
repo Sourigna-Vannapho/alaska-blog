@@ -2,7 +2,8 @@
 require_once("model/Manager.php");
 
 class PostManager extends Manager{
-	
+
+	// Join between commentaires and utilisateurs to solely grab and then display the amount of comments in a given entry
 	function callPosts(){
 	$bdd = $this->databaseConnect();
 	$req = $bdd->query('SELECT billets.id,billets.title,billets.content,DATE_FORMAT(billets.entry_date, \'%d/%m/%Y à %Hh%imin%ss\') AS date_creation, COUNT(commentaires.id_billet) nombreComm 

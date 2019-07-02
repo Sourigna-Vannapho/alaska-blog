@@ -1,0 +1,6 @@
+administrateur
+pseudo : Sourigna	
+mot de passe : bonjour
+utilisateur
+pseudo : Utilisateur
+mot de passe : bonjour

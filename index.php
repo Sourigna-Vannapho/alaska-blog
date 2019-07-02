@@ -26,6 +26,7 @@ try{
 			logoutConfirm();
 		}
 		else if ($_SESSION){
+			// Registered user/admin only
 			if ($_SESSION['authority'] >= 1){
 				if ($_GET['action'] == 'report_comment'){
 				commentReportConfirm();
@@ -34,6 +35,7 @@ try{
 				else if ($_GET['action'] == 'comment_confirm' && $_GET['id'] > 0){
 				commentConfirm();
 				}
+				// Admin only
 					if ($_SESSION['authority'] == 2){
 						if ($_GET['action'] == 'admin_panel'){
 							adminPanel();
@@ -41,6 +43,7 @@ try{
 						else if ($_GET['action'] == 'add_entry'){
 						addEntry();
 						}
+						//If an entry id is present in the url submits changes to according entry corresponding to id, else insert new entry into database
 						else if ($_GET['action'] == 'add_entry_confirm'){
 							if (isset($_GET['id'])){
 								updateEntryConfirm();

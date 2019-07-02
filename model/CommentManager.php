@@ -2,6 +2,7 @@
 require_once("model/Manager.php");
 class CommentManager extends Manager{
 
+//Join done to retrieve user name and affect it to comment
 	function callComments($postId){
 		$bdd = $this->databaseConnect();
 		$comment = $bdd->prepare('SELECT utilisateurs.pseudo AS pseudo,commentaires.id_billet,commentaires.id AS id_comment,commentaires.content AS comment,commentaires.report_status, DATE_FORMAT(commentaires.date, \'%d/%m/%Y à %Hh%imin%ss\') AS date_creation 
@@ -14,14 +15,16 @@ class CommentManager extends Manager{
 		return $comment;
 		}
 
+//Trim done to submitted comment to avoid unnecessary white space length
 	function commentRegister($postId){
-		if (trim($_POST['comment']) !== ''){
+		$trimmedContent = trim($_POST['comment']);
+		if ($trimmedContent !== ''){
 		$bdd = $this->databaseConnect();
 		$req = $bdd->prepare('INSERT INTO commentaires(id_pseudo,id_billet,content,date)VALUES(:id_pseudo,:id_billet,:content, NOW())');
 		$req->execute(array(
 		'id_pseudo'=>$_SESSION['id'],
 		'id_billet'=>$postId,
-		'content'=>trim($_POST['comment'])));
+		'content'=>$trimmedContent));
 		}}
 
 	function deleteComments($postId){
@@ -37,6 +40,7 @@ class CommentManager extends Manager{
 			'commentId' =>$commentId));
 		}
 
+//Join done to retrieve user name and affect it to comment
 	function reportedComments(){
 		$bdd = $this->databaseConnect();
 		$req = $bdd->query('SELECT commentaires.id AS comment_id,commentaires.id_pseudo,commentaires.id_billet,commentaires.content,commentaires.report_status,billets.id AS billet_id,billets.title,DATE_FORMAT(billets.entry_date, \'%d/%m/%Y à %Hh%imin%ss\') AS date_creation,

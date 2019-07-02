@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 01 avr. 2019 à 22:22
+-- Généré le :  mar. 02 juil. 2019 à 21:40
 -- Version du serveur :  5.7.23
 -- Version de PHP :  7.2.10
 
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `billets` (
   `content` text NOT NULL,
   `entry_date` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=67 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=68 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `billets`
@@ -63,7 +63,7 @@ CREATE TABLE IF NOT EXISTS `commentaires` (
   `date` datetime NOT NULL,
   `report_status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=45 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=63 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `commentaires`
@@ -86,7 +86,7 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `pass` varchar(255) NOT NULL,
   `authority` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `utilisateurs`
@@ -95,7 +95,6 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
 INSERT INTO `utilisateurs` (`id`, `pseudo`, `pass`, `authority`) VALUES
 (7, 'Sourigna', '$2y$10$pCcKChzRDedAAVKoRLx7lOeGxurtbna1aGKV2PfmeZMWLiur0zJTG', 2),
 (22, 'Utilisateur2', '$2y$10$Ipa7lt3SWwakuFSPaIsLnOZKgqa3IhW4r8fW1JF7RhRbi5COcH4F.', 1),
-(20, 'NotABot', '$2y$10$AfDWq2wgn4yfa/cJqUWHmuFYM.tY9ZD6fPnYdV.I36fzak4QwT2oi', 1),
 (19, 'Utilisateur', '$2y$10$IK/tuyqTIEF1CK4QALMFaOPCn0ukbrI5xPCcJI9oVJCfCMMTcnRam', 1);
 COMMIT;
 
